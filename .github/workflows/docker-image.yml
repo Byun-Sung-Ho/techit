@@ -9,10 +9,14 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout
+          uses: actions/checkout@v4
+
+      - name: Docker build, push
+          run: |
+            docker build -t myfront:latest .
+            docker tag my-image:latest 192.168.241.136:5000/my-image:latest
+            docker push 192.168.241.136:5000/my-image:latest
