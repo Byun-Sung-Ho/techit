@@ -20,5 +20,5 @@ jobs:
       - name: Docker build, tag, and push
         run: |
           docker build -t myfront:latest .
-          docker tag myfront:latest 192.168.241.136:5000/myfront:latest
-          docker push 192.168.241.136:5000/myfront:latest
+          docker tag myfront:latest http://192.168.241.136:5000/myfront:latest
+          docker push http://192.168.241.136:5000/myfront:latest
